@@ -18,7 +18,6 @@ const NavBar = () => {
       label: 'Issues', href: '/issues'
     },
   ]
-  console.log(currentPath)
   return (
     <nav className="flex space-x-6 border-b mb-5 px-5 h-14 items-center">
       <Link href="/"><GiArtificialIntelligence /></Link>

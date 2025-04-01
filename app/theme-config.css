@@ -1,0 +1,4 @@
+/* TODO: Fix custom Font Family import  */
+.radix-themes {
+  --default-font-family: var(--font-inter);
+}
