@@ -1,18 +1,17 @@
 'use client';
 
-import { Button, Callout, Text, TextField } from '@radix-ui/themes'
-import dynamic from "next/dynamic";
-import "easymde/dist/easymde.min.css";
-import axios from 'axios'
-import { useForm, Controller } from 'react-hook-form'
-import { useRouter } from 'next/navigation';
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from 'react';
+import { ErrorMessage, Spinner } from '@/app/components/index';
 import { createIssueSchema } from '@/app/validationSchemas';
-import { z } from 'zod'
-import ErrorMessage from '@/app/components/ErrorMessage';
-import Spinner from '@/app/components/Spinner';
-import NewIssueLoading from './loading'
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button, Callout, TextField } from '@radix-ui/themes';
+import axios from 'axios';
+import "easymde/dist/easymde.min.css";
+import dynamic from "next/dynamic";
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { z } from 'zod';
+import NewIssueLoading from './loading';
 
 // Dynamically import the SimpleMDE component, disabling SSR
 //import SimpleMDE from 'react-simplemde-editor'
