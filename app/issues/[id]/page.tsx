@@ -21,7 +21,7 @@ const IssueDetailPage = async ({ params }: Props) => {
     notFound()
   }
   return (
-    <>
+    <div>
       <Heading>{issue.title}</Heading>
       <Flex gap='4' my='2'>
         <IssueStatusBadge status={issue.status} />
@@ -31,9 +31,7 @@ const IssueDetailPage = async ({ params }: Props) => {
       <Card className='prose' mt='4'>
         <ReactMarkdown>{issue.description}</ReactMarkdown>
       </Card>
-
-
-    </>
+    </div>
   )
 }
 

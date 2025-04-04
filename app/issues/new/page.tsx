@@ -12,10 +12,11 @@ import { createIssueSchema } from '@/app/validationSchemas';
 import { z } from 'zod'
 import ErrorMessage from '@/app/components/ErrorMessage';
 import Spinner from '@/app/components/Spinner';
+import NewIssueLoading from './loading'
 
 // Dynamically import the SimpleMDE component, disabling SSR
 //import SimpleMDE from 'react-simplemde-editor'
-const SimpleMDE = dynamic(() => import("react-simplemde-editor"), { ssr: false, loading: () => <p>Loading editor...</p> });
+const SimpleMDE = dynamic(() => import("react-simplemde-editor"), { ssr: false, loading: () => <NewIssueLoading /> });
 
 type IssueForm = z.infer<typeof createIssueSchema>
 
