@@ -1,10 +1,11 @@
 import "@radix-ui/themes/styles.css"
 import "./theme-config.css"
 import './globals.css'
-import { Container, Theme } from "@radix-ui/themes"
+import { Theme } from "@radix-ui/themes"
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavBar from './NavBar'
+import AuthProvider from "./auth/Provider"
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,14 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
-        <Theme accentColor="mint" radius="large">
-          <NavBar />
-          <main className="p-5">
-            <Container>
+        <AuthProvider>
+          <Theme accentColor="mint" radius="large">
+            <NavBar />
+            <main className="p-5">
               {children}
-            </Container>
-          </main>
-        </Theme>
+            </main>
+          </Theme>
+        </AuthProvider>
       </body>
     </html>
   )

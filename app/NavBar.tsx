@@ -5,9 +5,13 @@ import React from 'react'
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { usePathname } from 'next/navigation'
 import classNames from 'classnames';
+import { Box } from '@radix-ui/themes';
+import { useSession } from 'next-auth/react'
 
 
 const NavBar = () => {
+
+  const { status, data: session } = useSession()
 
   const currentPath = usePathname()
   const links = [
@@ -23,17 +27,22 @@ const NavBar = () => {
       <Link href="/"><GiArtificialIntelligence /></Link>
       <ul className="flex space-x-6">
         {links.map(link =>
-          <Link
-            key={link.href}
-            href={link.href}
-            className={classNames({
-              "text-slate-900": link.href === currentPath,
-              "text-slate-500": link.href !== currentPath,
-              "hover:text-slate-800 transition-colors": true
-            })}>
-            {link.label}
-          </Link>)}
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              className={classNames({
+                "text-slate-900": link.href === currentPath,
+                "text-slate-500": link.href !== currentPath,
+                "hover:text-slate-800 transition-colors": true
+              })}>
+              {link.label}
+            </Link>
+          </li>)}
       </ul>
+      <Box>
+        {status === 'authenticated' && <Link href='/api/auth/signout'>Log out</Link>}
+        {status === 'unauthenticated' && <Link href='/api/auth/signin'>Login</Link>}
+      </Box>
     </nav>
   )
 }
