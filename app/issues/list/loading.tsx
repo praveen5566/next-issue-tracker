@@ -7,7 +7,7 @@ const IssuesPageLoading = () => {
   return (
     <div>
       <IssueActions />
-      <Table.Root variant="surface" className='max-w-2xl'>
+      <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell>Issues</Table.ColumnHeaderCell>
