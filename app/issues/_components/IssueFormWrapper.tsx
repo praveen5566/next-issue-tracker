@@ -1,12 +1,11 @@
-'use client'
+"use client";
 
-import dynamic from 'next/dynamic'
-import IssueFormSkeleton from './IssueFormSkeleton'
+import dynamic from "next/dynamic";
+import IssueFormSkeleton from "./IssueFormSkeleton";
 
-
-const IssueForm = dynamic(() => import('@/app/issues/_components/IssueForm'), {
+const IssueForm = dynamic(() => import("@/app/issues/_components/IssueForm"), {
   ssr: false,
-  loading: () => <IssueFormSkeleton />
-})
+  loading: () => <IssueFormSkeleton />,
+});
 
-export default IssueForm
+export default IssueForm;

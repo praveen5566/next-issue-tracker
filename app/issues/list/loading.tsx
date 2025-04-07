@@ -1,9 +1,9 @@
-import { Skeleton } from '@/app/components/index'
-import { Table } from '@radix-ui/themes'
-import IssueActions from './IssueActions'
+import { Skeleton } from "@/app/components/index";
+import { Table } from "@radix-ui/themes";
+import IssueActions from "./IssueActions";
 
 const IssuesPageLoading = () => {
-  const issues = [1, 2, 3, 4, 5]
+  const issues = [1, 2, 3, 4, 5];
   return (
     <div>
       <IssueActions />
@@ -11,24 +11,35 @@ const IssuesPageLoading = () => {
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell>Issues</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className='hidden md:table-cell'>Status</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className='hidden md:table-cell'>Created At</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="hidden md:table-cell">
+              Status
+            </Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="hidden md:table-cell">
+              Created At
+            </Table.ColumnHeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {issues.map((issue) =>
+          {issues.map((issue) => (
             <Table.Row key={issue}>
-              <Table.Cell><Skeleton />
-                <div className='block md:hidden'><Skeleton /></div>
+              <Table.Cell>
+                <Skeleton />
+                <div className="block md:hidden">
+                  <Skeleton />
+                </div>
               </Table.Cell>
-              <Table.Cell className='hidden md:table-cell'><Skeleton /></Table.Cell>
-              <Table.Cell className='hidden md:table-cell'><Skeleton /></Table.Cell>
+              <Table.Cell className="hidden md:table-cell">
+                <Skeleton />
+              </Table.Cell>
+              <Table.Cell className="hidden md:table-cell">
+                <Skeleton />
+              </Table.Cell>
             </Table.Row>
-          )}
+          ))}
         </Table.Body>
       </Table.Root>
     </div>
-  )
-}
+  );
+};
 
-export default IssuesPageLoading
+export default IssuesPageLoading;
