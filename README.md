@@ -1,4 +1,8 @@
-Issue Tracker built using [Next.js](https://nextjs.org/). Other libraries include:
+Issue Tracker built using [Next.js](https://nextjs.org/). 
+
+<img width="1253" alt="Screenshot 2025-04-12 at 4 14 12 PM" src="https://github.com/user-attachments/assets/5b6c0cab-a5f5-4f4b-8511-80779689e20b" />
+
+Other libraries include:
 
 - [NextAuth](https://next-auth.js.org/)
 - [Prisma](https://www.prisma.io/)
