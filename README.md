@@ -44,4 +44,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Important Links
 
 [Issue Tracker GCP console](https://console.cloud.google.com/auth/clients?invt=Abt-Zg&project=next-issue-tracker-455921)
+
 To remove .env file from git history - script -> [git-filter-repo](https://github.com/newren/git-filter-repo/blob/main/git-filter-repo) cmd ->`python3 git-filter-repo.py --path .env --invert-paths`
