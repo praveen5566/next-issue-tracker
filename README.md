@@ -5,6 +5,8 @@ Issue Tracker built using [Next.js](https://nextjs.org/). Other libraries includ
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Radix UI](https://www.radix-ui.com/)
 - [ReactQuery](https://tanstack.com/query/latest)
+- [Recharts](https://recharts.org)
+- [Sentry](https://sentry.io)
 
 This project is bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -46,3 +48,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 [Issue Tracker GCP console](https://console.cloud.google.com/auth/clients?invt=Abt-Zg&project=next-issue-tracker-455921)
 
 To remove .env file from git history - script -> [git-filter-repo](https://github.com/newren/git-filter-repo/blob/main/git-filter-repo) cmd ->`python3 git-filter-repo.py --path .env --invert-paths`
+
+[Sentry Dashboard](https://home-office-ca.sentry.io/issues/?project=4509138235359232&statsPeriod=14d)
