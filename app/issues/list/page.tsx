@@ -5,9 +5,14 @@ import { prisma } from "@/prisma/client";
 import IssueActions from "./IssueActions";
 import { Issue, Status } from "@prisma/client";
 import { FiArrowDown, FiArrowUp } from "react-icons/fi";
+import Pagination from "@/app/components/Pagination";
 
 interface Props {
-  searchParams: { status: Status; orderBy: keyof Issue };
+  searchParams: {
+    status: Status;
+    orderBy: keyof Issue;
+    page: string;
+  };
 }
 
 const columns: {
@@ -21,18 +26,27 @@ const columns: {
 ];
 
 const IssuesPage = async ({ searchParams }: Props) => {
-  const { status, orderBy } = await searchParams;
+  const { status, orderBy, page } = await searchParams;
   const statuses = Object.values(Status);
   const queryStatus = statuses.includes(status) ? status : undefined;
   const queryOrderBy = columns.map((column) => column.value).includes(orderBy)
     ? { [orderBy]: "asc" }
     : undefined;
+
+  const where = {
+    status: queryStatus,
+  };
+  const queryPage = parseInt(page) || 1;
+  const pageSize = 10;
+
   const issues = await prisma.issue.findMany({
-    where: {
-      status: queryStatus,
-    },
+    where,
     orderBy: queryOrderBy,
+    skip: (queryPage - 1) * pageSize,
+    take: pageSize,
   });
+
+  const issueCount = await prisma.issue.count({ where });
 
   return (
     <div>
@@ -81,6 +95,11 @@ const IssuesPage = async ({ searchParams }: Props) => {
           ))}
         </Table.Body>
       </Table.Root>
+      <Pagination
+        itemCount={issueCount}
+        pageSize={pageSize}
+        currentPage={queryPage}
+      />
     </div>
   );
 };
